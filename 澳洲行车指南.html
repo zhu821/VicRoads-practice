@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg936\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+  <meta charset="UTF-8">\
+  <title>VicRoads \uc0\u32451 \u20064 \u39064 \u31616 \u26131 \u29256 </title>\
+  <style>\
+    body \{ font-family: sans-serif; max-width: 800px; margin: 30px auto; padding: 20px; line-height: 1.6; \}\
+    .question \{ margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 6px; \}\
+    .option \{ cursor: pointer; margin: 5px 0; padding: 6px; border: 1px solid #ccc; border-radius: 4px; \}\
+    .option:hover \{ background-color: #f0f0f0; \}\
+    .correct \{ background-color: #d4edda; \}\
+    .incorrect \{ background-color: #f8d7da; \}\
+    .explanation \{ font-size: 0.95em; margin-top: 10px; color: #444; \}\
+  </style>\
+</head>\
+<body>\
+\
+  <h1>\uc0\u55357 \u56983  VicRoads \u27169 \u25311 \u39064  - \u31616 \u26131 \u29256 </h1>\
+  <p>\uc0\u36866 \u29992 \u20110 \u26469 \u28595 \u39550 \u36710 \u28216 \u23458 \u12289 \u30041 \u23398 \u29983 \u30340 \u32451 \u20064 \u39064 \u12290 \u28857 \u20987 \u36873 \u39033 \u26597 \u30475 \u26159 \u21542 \u27491 \u30830 \u24182 \u26597 \u30475 \u20013 \u25991 \u35299 \u26512 \u12290 </p>\
+\
+  <div id="quiz"></div>\
+\
+  <script>\
+    const questions = [\
+      \{\
+        text: "What is the legal blood alcohol limit for full licence holders in Victoria?\\n\uc0\u32500 \u24030 \u25345 \u26377 \u27491 \u24335 \u39550 \u29031 \u32773 \u30340 \u27861 \u23450 \u37202 \u31934 \u38480 \u24230 \u26159 \u22810 \u23569 \u65311 ",\
+        options: ["0.00%", "0.02%", "0.05%", "0.08%"],\
+        answer: 2,\
+        explanation: "\uc0\u22312 \u32500 \u22810 \u21033 \u20122 \u24030 \u65292 \u27491 \u24335 \u39550 \u29031 \u25345 \u26377 \u32773 \u30340 \u27861 \u23450 \u37202 \u31934 \u27987 \u24230 \u19978 \u38480 \u26159 0.05%\u12290 \u26032 \u25163 \u25110 \u32844 \u19994 \u39550 \u39542 \u21592 \u21017 \u38656 \u20026 0.00%\u12290 "\
+      \},\
+      \{\
+        text: "At a roundabout, who must you give way to?\\n\uc0\u22312 \u29615 \u23707 \u20013 \u65292 \u20320 \u24212 \u35813 \u35753 \u35841 \u20808 \u34892 \u65311 ",\
+        options: [\
+          "Vehicles on your left\\n\uc0\u24038 \u20391 \u36710 \u36742 ",\
+          "Vehicles already in the roundabout\\n\uc0\u24050 \u22312 \u29615 \u23707 \u20869 \u30340 \u36710 \u36742 ",\
+          "Vehicles entering from your right\\n\uc0\u21491 \u20391 \u39542 \u20837 \u30340 \u36710 \u36742 ",\
+          "No one, you go first\\n\uc0\u35841 \u37117 \u19981 \u29992 \u65292 \u20808 \u21040 \u20808 \u36208 "\
+        ],\
+        answer: 1,\
+        explanation: "\uc0\u20320 \u24517 \u39035 \u35753 \u24050 \u32463 \u22312 \u29615 \u23707 \u20869 \u30340 \u36710 \u36742 \u20808 \u34892 \u65292 \u36825 \u26159 \u28595 \u27954 \u20132 \u35268 \u30340 \u37325 \u35201 \u35268 \u21017 \u12290 "\
+      \},\
+      \{\
+        text: "What does this sign mean?\\n\uc0\u36825 \u20010 \u26631 \u24535 \u34920 \u31034 \u20160 \u20040 \u65311 \\n\u55357 \u57016 ",\
+        options: ["No entry\\n\uc0\u31105 \u27490 \u36827 \u20837 ", "School zone\\n\u23398 \u26657 \u21306 \u22495 ", "Pedestrian crossing\\n\u20154 \u34892 \u27178 \u36947 ", "Children playing\\n\u20799 \u31461 \u29609 \u32781 "],\
+        answer: 2,\
+        explanation: "\uc0\u36825 \u20010 \u26631 \u24535 \u34920 \u31034 \'93\u20154 \u34892 \u27178 \u36947 \'94\u65292 \u39550 \u36710 \u32773 \u24517 \u39035 \u35753 \u34892 \u20154 \u20808 \u34892 \u65292 \u23588 \u20854 \u22312 \u38752 \u36817 \u23398 \u26657 \u21306 \u26102 \u35201 \u26356 \u21152 \u23567 \u24515 \u12290 "\
+      \},\
+      \{\
+        text: "If you are caught driving with illicit drugs in your system, what is the consequence?\\n\uc0\u22914 \u26524 \u20320 \u20307 \u20869 \u26377 \u38750 \u27861 \u33647 \u29289 \u39550 \u39542 \u65292 \u20250 \u26377 \u20160 \u20040 \u21518 \u26524 \u65311 ",\
+        options: [\
+          "Receive a warning\\n\uc0\u25910 \u21040 \u35686 \u21578 ",\
+          "Fine only\\n\uc0\u20165 \u32602 \u27454 ",\
+          "Lose your licence and receive a fine\\n\uc0\u21514 \u38144 \u39550 \u29031 \u24182 \u32602 \u27454 ",\
+          "Nothing if you're careful\\n\uc0\u21482 \u35201 \u23567 \u24515 \u24320 \u23601 \u27809 \u20107 "\
+        ],\
+        answer: 2,\
+        explanation: "\uc0\u22312 \u28595 \u27954 \u24320 \u36710 \u20307 \u20869 \u21547 \u26377 \u27602 \u21697 \u26159 \u20005 \u37325 \u36829 \u27861 \u34892 \u20026 \u65292 \u20250 \u38754 \u20020 \u21514 \u38144 \u39550 \u29031 \u12289 \u32602 \u27454 \u31561 \u27861 \u24459 \u21518 \u26524 \u12290 "\
+      \},\
+      \{\
+        text: "When approaching a school zone during school hours, you must:\\n\uc0\u22312 \u19978 \u23398 \u26102 \u38388 \u36827 \u20837 \u23398 \u26657 \u21306 \u22495 \u26102 \u65292 \u20320 \u24517 \u39035 \u65306 ",\
+        options: [\
+          "Drive at 60km/h\\n\uc0\u20197 60\u20844 \u37324 \u26102 \u36895 \u34892 \u39542 ",\
+          "Stop completely\\n\uc0\u23436 \u20840 \u20572 \u36710 ",\
+          "Drive at 40km/h or as signed\\n\uc0\u20197 40\u20844 \u37324 \u25110 \u26631 \u31034 \u36895 \u24230 \u34892 \u39542 ",\
+          "Honk to alert kids\\n\uc0\u40483 \u31515 \u35686 \u21578 \u23567 \u23401 "\
+        ],\
+        answer: 2,\
+        explanation: "\uc0\u23398 \u26657 \u21306 \u22495 \u22312 \u25351 \u23450 \u26102 \u38388 \u20869 \u38480 \u36895 \u20026 40km/h\u65292 \u38656 \u29305 \u21035 \u27880 \u24847 \u26631 \u35782 \u21450 \u20799 \u31461 \u20986 \u27809 \u12290 "\
+      \}\
+    ];\
+\
+    const container = document.getElementById("quiz");\
+\
+    questions.forEach((q, i) => \{\
+      const box = document.createElement("div");\
+      box.className = "question";\
+      const title = document.createElement("p");\
+      title.innerText = `Q$\{i+1\}. $\{q.text\}`;\
+      box.appendChild(title);\
+\
+      q.options.forEach((opt, idx) => \{\
+        const btn = document.createElement("div");\
+        btn.className = "option";\
+        btn.innerText = opt;\
+        btn.onclick = () => \{\
+          btn.className += idx === q.answer ? " correct" : " incorrect";\
+          const exp = document.createElement("div");\
+          exp.className = "explanation";\
+          exp.innerText = "\uc0\u35299 \u26512 \u65306 " + q.explanation;\
+          box.appendChild(exp);\
+        \};\
+        box.appendChild(btn);\
+      \});\
+\
+      container.appendChild(box);\
+    \});\
+  </script>\
+\
+</body>\
+</html>}
