@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>VicRoads 练习题简易版</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .option {
+      cursor: pointer;
+      margin: 6px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .option:hover {
+      background-color: #f0f0f0;
+    }
+
+    .correct {
+      background-color: #d4edda;
+      border-color: #28a745;
+    }
+
+    .incorrect {
+      background-color: #f8d7da;
+      border-color: #dc3545;
+    }
+
+    .explanation {
+      font-size: 0.95em;
+      margin-top: 10px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚗 VicRoads 模拟题 - 简易版</h1>
+  <p style="text-align: center;">适用于来澳驾车游客、留学生的练习题。点击选项查看是否正确并查看中文解析。</p>
+
+  <div id="quiz"></div>
+
+  <script>
+    const questions = [
+      {
+        text: "Q1. What is the legal blood alcohol limit for full licence holders in Victoria?\n维州持有正式驾照者的法定酒精限度是多少？",
+        options: ["0.00%", "0.02%", "0.05%", "0.08%"],
+        answer: 2,
+        explanation: "在维多利亚州，正式驾照持有者的法定血液酒精浓度上限是0.05%。"
+      },
+      {
+        text: "Q2. At a roundabout, who must you give way to?\n在环岛中，你应该让谁先行？",
+        options: [
+          "左侧车辆",
+          "已在环岛内的车辆",
+          "右侧驶入的车辆",
+          "谁都不用，先到先走"
+        ],
+        answer: 1,
+        explanation: "你必须让已经在环岛内的车辆先行，这是澳洲交规的重要规则。"
+      },
+      {
+        text: "Q3. What does this sign mean? 🚸\n这个标志表示什么？",
+        options: ["禁止进入", "学校区域", "人行横道", "儿童玩耍"],
+        answer: 2,
+        explanation: "这个标志表示“人行横道”，在澳洲行人拥有优先通行权。"
+      },
+      {
+        text: "Q4. If you are caught driving with illicit drugs in your system, what is the consequence?\n体内含非法药物开车，会有什么后果？",
+        options: [
+          "收到警告",
+          "仅罚款",
+          "吊销驾照并罚款",
+          "只要小心开就没事"
+        ],
+        answer: 2,
+        explanation: "在澳洲开车体内含毒是违法行为，通常会导致吊销驾照并处罚款。"
+      },
+      {
+        text: "Q5. When approaching a school zone during school hours, you must:\n在上学时间进入学校区域时，你必须：",
+        options: [
+          "以60公里时速行驶",
+          "完全停车",
+          "以40公里或标示速度行驶",
+          "鸣笛警告小孩"
+        ],
+        answer: 2,
+        explanation: "学校区域通常限速40km/h，必须严格遵守，否则将被罚款并扣分。"
+      }
+    ];
+
+    const container = document.getElementById("quiz");
+
+    questions.forEach((q, i) => {
+      const box = document.createElement("div");
+      box.className = "question";
+      const title = document.createElement("p");
+      title.innerText = q.text;
+      box.appendChild(title);
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement("div");
+        btn.className = "option";
+        btn.innerText = opt;
+        btn.onclick = () => {
+          if (btn.classList.contains("correct") || btn.classList.contains("incorrect")) return;
+          btn.classList.add(idx === q.answer ? "correct" : "incorrect");
+
+          const exp = document.createElement("div");
+          exp.className = "explanation";
+          exp.innerText = "解析：" + q.explanation;
+          box.appendChild(exp);
+        };
+        box.appendChild(btn);
+      });
+
+      container.appendChild(box);
+    });
+  </script>
+
+</body>
+</html>
